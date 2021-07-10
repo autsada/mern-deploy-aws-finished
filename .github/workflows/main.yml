@@ -73,18 +73,21 @@ jobs:
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-      # - name: Get timestamp
-      #   id: timestamp
-      #   run: echo "::set-output name=timestamp::$(date +'%s')"
+
+      - name: Get timestamp
+        id: timestamp
+        run: echo "::set-output name=timestamp::$(date +'%s')"
+
       # - name: Zip docker-compose file for sending to Beanstalk
       #   run: zip compose.zip docker-compose.yml
-      # - name: Deploy to EB
-      #   uses: einaregilsson/beanstalk-deploy@v16
-      #   with:
-      #     aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     application_name: ${{ secrets.EB_APP_NAME }}
-      #     environment_name: ${{ secrets.EB_ENV_NAME }}
-      #     version_label: ${{steps.timestamp.outputs.timestamp}}
-      #     region: ${{ secrets.EB_REGION }}
-      #     deployment_package: docker-compose.yml
+
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v16
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: ${{ secrets.EB_APP_NAME }}
+          environment_name: ${{ secrets.EB_ENV_NAME }}
+          version_label: ${{steps.timestamp.outputs.timestamp}}
+          region: ${{ secrets.EB_REGION }}
+          deployment_package: docker-compose.yml
