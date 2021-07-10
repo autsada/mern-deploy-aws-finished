@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+    nginx:
+        image: auddyhub/mern-nginx:latest
+        restart: always
+        depends_on:
+            - frontend
+            - backend
+        ports:
+            - "80:80"
+
+    frontend:
+        image: auddyhub/mern-frontend:latest
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+
+    backend:
+        image: auddyhub/mern-backend:latest
+        environment:
+            - FRONTEND_URI=${FRONTEND_URI}
+            - SERVER_URI=${SERVER_URI}
+            - PORT=${PORT}
+            - DB_URI=${DB_URI}
+            - COOKIE_NAME=${COOKIE_NAME}
+            - COOKIE_SECRET=${COOKIE_SECRET}
+            - SENDGRID_API_KEY=${SENDGRID_API_KEY}
+            - FACEBOOK_APP_ID=${FACEBOOK_APP_ID}
+            - FACEBOOK_APP_SECRET=${FACEBOOK_APP_SECRET}
+            - FACEBOOK_CALLBACK_ROUTE=${FACEBOOK_CALLBACK_ROUTE}
+            - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+            - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+            - GOOGLE_CALLBACK_ROUTE=${GOOGLE_CALLBACK_ROUTE}
