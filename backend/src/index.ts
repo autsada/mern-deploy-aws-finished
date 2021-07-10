@@ -71,12 +71,15 @@ const startServer = async () => {
 
         server.applyMiddleware({
             app,
-            cors: { origin: FRONTEND_URI, credentials: true },
+            cors: {
+                // origin: FRONTEND_URI,
+                credentials: true
+            },
         })
 
         app.listen({ port: PORT }, () =>
             console.log(
-                `Server is ready at ${SERVER_URI}/${server.graphqlPath}`
+                `Server is ready at ${SERVER_URI}${server.graphqlPath}`
             )
         )
     } catch (error) {
