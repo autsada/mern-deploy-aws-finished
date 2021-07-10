@@ -24,5 +24,5 @@ export const client = new ApolloClient({
       },
     },
   }),
-  // credentials: 'include',
+  credentials: 'include',
 })
