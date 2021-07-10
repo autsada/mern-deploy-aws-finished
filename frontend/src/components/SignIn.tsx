@@ -73,13 +73,13 @@ const SignIn: React.FC<Props> = () => {
         <StyledSocial>
           <button className='facebook'>
             <FontAwesomeIcon icon={['fab', 'facebook-f']} size='lg' />
-            <a href={`${process.env.NEXT_PUBLIC_FACEBOOK_LOGIN_URI}`}>
+            <a href='/backend/auth/facebook'>
               Log in with Facebook
             </a>
           </button>
           <button className='google'>
             <FontAwesomeIcon icon={['fab', 'google']} />
-            <a href={`${process.env.NEXT_PUBLIC_GOOGLE_LOGIN_URI}`}>
+            <a href='/backend/auth/google'>
               Log in with Google
             </a>
           </button>
