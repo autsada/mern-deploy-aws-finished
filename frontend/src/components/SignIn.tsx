@@ -62,7 +62,6 @@ const SignIn: React.FC<Props> = () => {
     }
   })
 
-  console.log('Error: ', error)
   return (
     <Modal>
       <FormContainer>
