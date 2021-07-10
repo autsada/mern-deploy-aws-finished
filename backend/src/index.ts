@@ -77,7 +77,7 @@ const startServer = async () => {
             },
         })
 
-        app.listen({ port: PORT }, () =>
+        app.listen({ port: PORT ? +PORT : 5000 }, () =>
             console.log(
                 `Server is ready at ${SERVER_URI}${server.graphqlPath}`
             )
