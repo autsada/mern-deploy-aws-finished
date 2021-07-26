@@ -1,8 +1,5 @@
 # Deploy MERN App to AWS Elastic Beanstalk using Docker and Github Actions
 
-## Website
-http://mernapp-env.eba-s4xbtufm.ap-southeast-1.elasticbeanstalk.com/
-
 ## Technologies Stack
 
 **Backend**
