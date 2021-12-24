@@ -14,6 +14,6 @@
 - Apollo Client
 
 ## Deployment
-- Dcoker
+- Docker
 - Github Actions
 - AWS Elastic Beanstalk
